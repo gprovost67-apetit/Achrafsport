@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beyond Sport — Coaching Sportif en Entreprise</title>
+<meta name="description" content="Beyond Sport fédère vos équipes par le sport : coaching sportif en entreprise à Paris. Performance, cohésion, bien-être.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  :root{
+    --navy:#0d1f35;
+    --navy-2:#122a47;
+    --navy-3:#16304f;
+    --teal:#17d9a3;
+    --teal-dark:#0fb98a;
+    --bg-light:#f2f6f6;
+    --text-dark:#0d1f35;
+    --text-muted:#5b6b7c;
+    --white:#ffffff;
+    --radius:14px;
+    --shadow:0 12px 30px rgba(13,31,53,0.08);
+    --shadow-lg:0 20px 50px rgba(13,31,53,0.16);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--text-dark);
+    background:var(--white);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{font-family:'Poppins',sans-serif;font-weight:800;letter-spacing:-0.02em;}
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  .container{max-width:1180px;margin:0 auto;padding:0 24px;}
+  .eyebrow{
+    display:inline-block;
+    color:var(--teal-dark);
+    background:rgba(23,217,163,0.12);
+    font-weight:700;
+    font-size:0.78rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:6px 14px;
+    border-radius:999px;
+    margin-bottom:16px;
+  }
+  .section{padding:100px 0;}
+  .section-light{background:var(--bg-light);}
+  .section-head{max-width:640px;margin:0 auto 56px;text-align:center;}
+  .section-head h2{font-size:clamp(1.8rem,3vw,2.6rem);color:var(--navy);margin-bottom:14px;}
+  .section-head p{color:var(--text-muted);font-size:1.05rem;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:15px 30px;border-radius:999px;font-weight:700;font-size:0.98rem;
+    transition:all .25s ease;cursor:pointer;border:none;
+  }
+  .btn-primary{background:var(--teal);color:var(--navy);}
+  .btn-primary:hover{background:var(--teal-dark);transform:translateY(-2px);box-shadow:0 10px 24px rgba(23,217,163,0.35);}
+  .btn-outline{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,0.35);}
+  .btn-outline:hover{border-color:var(--white);background:rgba(255,255,255,0.08);}
+  .btn-outline-dark{background:transparent;color:var(--navy);border:2px solid rgba(13,31,53,0.2);}
+  .btn-outline-dark:hover{border-color:var(--navy);}
+
+  /* NAV */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:1000;
+    background:rgba(13,31,53,0.92);backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1180px;margin:0 auto;}
+  .logo{font-family:'Poppins',sans-serif;font-weight:900;color:var(--white);font-size:1.25rem;letter-spacing:-0.02em;}
+  .logo span{color:var(--teal);}
+  .nav-links{display:flex;gap:32px;list-style:none;}
+  .nav-links a{color:rgba(255,255,255,0.82);font-weight:600;font-size:0.94rem;transition:color .2s;}
+  .nav-links a:hover{color:var(--teal);}
+  .nav-cta{display:flex;align-items:center;gap:18px;}
+  .burger{display:none;background:none;border:none;color:var(--white);font-size:1.4rem;cursor:pointer;}
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 55%,var(--navy-3) 100%);
+    color:var(--white);
+    padding:170px 0 110px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;width:600px;height:600px;border-radius:50%;
+    background:radial-gradient(circle,rgba(23,217,163,0.18) 0%,rgba(23,217,163,0) 70%);
+    top:-200px;right:-150px;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:60px;align-items:center;position:relative;z-index:2;}
+  .hero h1{font-size:clamp(2.4rem,4.4vw,3.6rem);line-height:1.08;margin-bottom:22px;}
+  .hero h1 .accent{color:var(--teal);}
+  .hero p.lead{font-size:1.15rem;color:rgba(255,255,255,0.78);max-width:520px;margin-bottom:36px;}
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:38px;}
+  .hero-trust{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,0.65);font-size:0.9rem;font-weight:500;}
+  .hero-trust i{color:var(--teal);}
+  .hero-visual{position:relative;}
+  .hero-card{
+    background:var(--white);color:var(--navy);border-radius:var(--radius);
+    padding:26px 28px;box-shadow:var(--shadow-lg);
+  }
+  .hero-card .stat-row{display:flex;justify-content:space-between;gap:18px;margin-bottom:18px;}
+  .hero-card .stat-row:last-child{margin-bottom:0;}
+  .hero-stat-num{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.5rem;color:var(--teal-dark);}
+  .hero-stat-label{font-size:0.82rem;color:var(--text-muted);max-width:160px;}
+  .hero-badge{
+    position:absolute;bottom:-24px;left:-24px;background:var(--teal);color:var(--navy);
+    padding:16px 20px;border-radius:12px;font-weight:700;box-shadow:var(--shadow-lg);
+    font-size:0.9rem;display:flex;align-items:center;gap:10px;
+  }
+
+  /* TRUST BAR */
+  .trust-bar{background:var(--white);padding:48px 0;border-bottom:1px solid #eef1f2;}
+  .trust-bar p{text-align:center;color:var(--text-muted);font-size:0.85rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:28px;}
+  .trust-logos{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;}
+  .trust-logos span{
+    padding:12px 22px;border-radius:10px;background:var(--bg-light);
+    font-family:'Poppins',sans-serif;font-weight:700;color:var(--navy);font-size:0.95rem;
+  }
+
+  /* STATS */
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  .stat-card{
+    background:var(--navy);color:var(--white);border-radius:var(--radius);
+    padding:32px 24px;text-align:center;border-top:4px solid var(--teal);
+    transition:transform .25s ease;
+  }
+  .stat-card:hover{transform:translateY(-6px);}
+  .stat-card i{font-size:1.8rem;color:var(--teal);margin-bottom:16px;}
+  .stat-card .num{font-family:'Poppins',sans-serif;font-weight:800;font-size:2.1rem;margin-bottom:10px;}
+  .stat-card p{color:rgba(255,255,255,0.7);font-size:0.92rem;}
+  .stats-source{text-align:center;color:var(--text-muted);font-size:0.82rem;margin-top:24px;font-style:italic;}
+  .stats-banner{
+    margin-top:44px;background:var(--teal);color:var(--navy);text-align:center;
+    padding:22px 28px;border-radius:var(--radius);font-weight:700;font-size:1.05rem;
+  }
+
+  /* OFFRE */
+  .offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .offer-card{
+    background:var(--white);border-radius:var(--radius);padding:32px 28px;
+    box-shadow:var(--shadow);transition:transform .25s ease, box-shadow .25s ease;
+    border:1px solid #eef1f2;
+  }
+  .offer-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);}
+  .offer-icon{
+    width:54px;height:54px;border-radius:12px;background:rgba(23,217,163,0.12);
+    display:flex;align-items:center;justify-content:center;margin-bottom:20px;
+  }
+  .offer-icon i{color:var(--teal-dark);font-size:1.35rem;}
+  .offer-card h3{font-size:1.15rem;color:var(--navy);margin-bottom:10px;}
+  .offer-card p{color:var(--text-muted);font-size:0.95rem;}
+
+  /* METHOD */
+  .method-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;}
+  .method-card{
+    background:var(--navy-2);color:var(--white);border-radius:var(--radius);
+    padding:36px 26px;position:relative;border:1px solid rgba(255,255,255,0.06);
+  }
+  .method-num{
+    width:56px;height:56px;border-radius:50%;background:var(--teal);color:var(--navy);
+    display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;
+    font-weight:800;font-size:1.2rem;margin-bottom:22px;
+  }
+  .method-card h3{font-size:1.1rem;margin-bottom:10px;}
+  .method-card p{color:rgba(255,255,255,0.68);font-size:0.92rem;}
+  .method-banner{
+    margin-top:44px;text-align:center;background:var(--bg-light);color:var(--navy);
+    padding:20px;border-radius:var(--radius);font-weight:700;letter-spacing:0.03em;
+  }
+
+  /* COACH */
+  .coach-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:50px;align-items:start;}
+  .coach-photo-card{
+    background:var(--navy);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);
+  }
+  .coach-photo{
+    height:340px;background:linear-gradient(160deg,#1a3a5c,#0d1f35);
+    display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.35);font-size:3rem;
+  }
+  .coach-photo-info{padding:26px 26px 30px;}
+  .coach-photo-info h3{color:var(--white);font-size:1.4rem;margin-bottom:4px;}
+  .coach-photo-info .role{color:var(--teal);font-weight:600;font-style:italic;margin-bottom:18px;font-size:0.98rem;}
+  .coach-tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .coach-tags span{background:var(--teal);color:var(--navy);font-weight:700;font-size:0.78rem;padding:6px 12px;border-radius:999px;}
+  .coach-facts{display:flex;flex-direction:column;gap:14px;margin-bottom:26px;}
+  .coach-fact{
+    display:flex;gap:16px;align-items:flex-start;background:var(--white);
+    border:1px solid #eef1f2;border-radius:12px;padding:18px 20px;box-shadow:var(--shadow);
+  }
+  .coach-fact i{color:var(--teal-dark);font-size:1.1rem;margin-top:3px;}
+  .coach-fact p{color:var(--text-dark);font-size:0.96rem;}
+  .coach-team-note{
+    background:var(--navy);color:rgba(255,255,255,0.85);border-radius:var(--radius);
+    padding:22px 24px;display:flex;gap:16px;align-items:flex-start;font-size:0.95rem;
+  }
+  .coach-team-note i{color:var(--teal);font-size:1.3rem;margin-top:2px;}
+
+  /* TESTIMONIAL */
+  .quote-card{
+    background:var(--navy);color:var(--white);border-radius:var(--radius);
+    padding:48px 50px;position:relative;margin-bottom:44px;box-shadow:var(--shadow-lg);
+  }
+  .quote-card i.fa-quote-left{font-size:2rem;color:var(--teal);margin-bottom:20px;}
+  .quote-card p.quote-text{font-size:1.2rem;font-style:italic;color:rgba(255,255,255,0.9);margin-bottom:22px;max-width:820px;}
+  .quote-card .author{color:rgba(255,255,255,0.6);font-size:0.92rem;}
+  .benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .benefit-card{
+    background:var(--white);border:1px solid #eef1f2;border-radius:var(--radius);
+    padding:30px 26px;text-align:center;box-shadow:var(--shadow);
+  }
+  .benefit-card i{font-size:1.8rem;color:var(--teal-dark);margin-bottom:16px;}
+  .benefit-card h3{font-size:1.1rem;margin-bottom:8px;color:var(--navy);}
+  .benefit-card p{color:var(--text-muted);font-size:0.92rem;}
+
+  /* FAQ */
+  .faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:14px;}
+  .faq-item{background:var(--white);border:1px solid #eef1f2;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);}
+  .faq-question{
+    display:flex;justify-content:space-between;align-items:center;padding:20px 24px;
+    cursor:pointer;font-weight:700;color:var(--navy);font-size:1rem;
+  }
+  .faq-question i{color:var(--teal-dark);transition:transform .25s ease;}
+  .faq-item.open .faq-question i{transform:rotate(45deg);}
+  .faq-answer{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+  .faq-answer p{padding:0 24px 22px;color:var(--text-muted);font-size:0.95rem;}
+
+  /* CTA FINAL */
+  .cta-final{
+    background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);
+    color:var(--white);border-radius:24px;padding:70px 60px;
+    display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;
+    position:relative;overflow:hidden;
+  }
+  .cta-final::after{
+    content:"";position:absolute;width:400px;height:400px;border-radius:50%;
+    background:radial-gradient(circle,rgba(23,217,163,0.2) 0%,rgba(23,217,163,0) 70%);
+    bottom:-200px;right:-100px;
+  }
+  .cta-final h2{font-size:clamp(1.7rem,3vw,2.3rem);margin-bottom:16px;position:relative;z-index:2;}
+  .cta-final p{color:rgba(255,255,255,0.75);margin-bottom:28px;position:relative;z-index:2;}
+  .cta-checklist{display:flex;flex-direction:column;gap:12px;margin-bottom:30px;position:relative;z-index:2;}
+  .cta-checklist div{display:flex;gap:10px;align-items:center;color:rgba(255,255,255,0.88);font-size:0.95rem;}
+  .cta-checklist i{color:var(--teal);}
+  .contact-box{
+    background:var(--white);color:var(--text-dark);border-radius:16px;padding:34px;
+    position:relative;z-index:2;box-shadow:var(--shadow-lg);
+  }
+  .contact-box h3{margin-bottom:18px;font-size:1.2rem;color:var(--navy);}
+  .contact-box .field{margin-bottom:14px;}
+  .contact-box label{display:block;font-size:0.82rem;font-weight:600;color:var(--text-muted);margin-bottom:6px;}
+  .contact-box input,.contact-box textarea{
+    width:100%;padding:12px 14px;border-radius:8px;border:1px solid #dde3e6;
+    font-family:'Inter',sans-serif;font-size:0.94rem;color:var(--text-dark);
+  }
+  .contact-box textarea{resize:vertical;min-height:80px;}
+  .contact-box .btn-primary{width:100%;justify-content:center;margin-top:6px;}
+  .contact-direct{margin-top:20px;padding-top:18px;border-top:1px solid #eef1f2;display:flex;flex-direction:column;gap:8px;font-size:0.9rem;color:var(--text-muted);}
+  .contact-direct a{color:var(--navy);font-weight:600;}
+  .contact-direct i{color:var(--teal-dark);margin-right:8px;width:16px;}
+
+  /* FOOTER */
+  footer{background:var(--navy);color:rgba(255,255,255,0.6);padding:48px 0 28px;}
+  .footer-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;margin-bottom:30px;}
+  .footer-col h4{color:var(--white);font-size:1rem;margin-bottom:14px;}
+  .footer-links{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .footer-links a{color:rgba(255,255,255,0.6);font-size:0.9rem;}
+  .footer-links a:hover{color:var(--teal);}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:0.82rem;}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+
+  @media(max-width:960px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-visual{margin-top:40px;}
+    .stats-grid{grid-template-columns:repeat(2,1fr);}
+    .offer-grid{grid-template-columns:repeat(2,1fr);}
+    .method-grid{grid-template-columns:repeat(2,1fr);}
+    .coach-grid{grid-template-columns:1fr;}
+    .benefits-grid{grid-template-columns:1fr;}
+    .cta-final{grid-template-columns:1fr;padding:44px 28px;}
+    .nav-links{display:none;}
+    .burger{display:block;}
+  }
+  @media(max-width:600px){
+    .stats-grid,.offer-grid,.method-grid{grid-template-columns:1fr;}
+    .section{padding:70px 0;}
+    .hero{padding:150px 0 80px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="#top" class="logo">BEYOND<span>SPORT</span></a>
+    <ul class="nav-links">
+      <li><a href="#offre">Offre</a></li>
+      <li><a href="#methode">Méthode</a></li>
+      <li><a href="#coach">Coach</a></li>
+      <li><a href="#avis">Avis</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-primary" style="padding:10px 22px;">Demander un devis</a>
+    </div>
+    <button class="burger" id="burgerBtn"><i class="fa-solid fa-bars"></i></button>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">Coaching sportif en entreprise</span>
+      <h1>Fédérez vos équipes<br>par le <span class="accent">sport.</span></h1>
+      <p class="lead">Performance, cohésion et bien-être : un programme de coaching sportif sur-mesure conçu pour les entreprises parisiennes, dans vos locaux ou en plein air.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-primary">Demander un diagnostic gratuit <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#offre" class="btn btn-outline">Découvrir nos offres</a>
+      </div>
+      <div class="hero-trust"><i class="fa-solid fa-medal"></i> Coach diplômé d'État · Ancien rugbyman professionnel</div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="stat-row">
+          <div class="hero-stat-num">-30 à 40%</div>
+          <div class="hero-stat-label">d'absentéisme dans les entreprises proposant du sport</div>
+        </div>
+        <div class="stat-row">
+          <div class="hero-stat-num">+6 à 9%</div>
+          <div class="hero-stat-label">de productivité gagnée grâce au sport en entreprise</div>
+        </div>
+        <div class="stat-row">
+          <div class="hero-stat-num">-25%</div>
+          <div class="hero-stat-label">de turnover dans les entreprises avec offre sportive</div>
+        </div>
+      </div>
+      <div class="hero-badge"><i class="fa-solid fa-users"></i> 66% des salariés sportifs jugent leurs collègues plus motivés</div>
+    </div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="container">
+    <p>Ils nous font confiance</p>
+    <div class="trust-logos">
+      <span>Ofi Invest</span>
+      <span>Eight Advisory</span>
+      <span>Forward</span>
+      <span>Zencap Asset Management</span>
+      <span>SWEN Capital Partners</span>
+      <span>Puteaux Rugby</span>
+    </div>
+  </div>
+</div>
+
+<section class="section" id="pourquoi">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Pourquoi le sport en entreprise</span>
+      <h2>Un des leviers RH les plus puissants</h2>
+      <p>Le sport collectif renforce durablement l'esprit d'équipe et la performance globale de vos collaborateurs.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card reveal"><i class="fa-solid fa-heart-pulse"></i><div class="num">-30 à 40%</div><p>d'absentéisme dans les entreprises proposant du sport</p></div>
+      <div class="stat-card reveal"><i class="fa-solid fa-arrow-trend-up"></i><div class="num">+6 à 9%</div><p>de productivité gagnée grâce au sport en entreprise</p></div>
+      <div class="stat-card reveal"><i class="fa-solid fa-trophy"></i><div class="num">66%</div><p>des salariés sportifs estiment leurs collègues plus motivés</p></div>
+      <div class="stat-card reveal"><i class="fa-solid fa-people-group"></i><div class="num">-25%</div><p>de turnover dans les entreprises avec offre sportive</p></div>
+    </div>
+    <p class="stats-source">Sources : Étude MEDEF / CNOSF (2015) · Étude OpinionWay / ParlonsRH · HBR 2023</p>
+    <div class="stats-banner reveal">Le sport collectif est l'un des leviers RH les plus puissants pour renforcer l'esprit d'équipe.</div>
+  </div>
+</section>
+
+<section class="section section-light" id="offre">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Notre offre</span>
+      <h2>Une offre de coaching complète</h2>
+      <p>Des formats variés, adaptés à tous les niveaux et à tous les objectifs.</p>
+    </div>
+    <div class="offer-grid">
+      <div class="offer-card reveal"><div class="offer-icon"><i class="fa-solid fa-person-running"></i></div><h3>Running & Cardio</h3><p>Préparation de courses (10 km, semi, marathon, trail). Apprentissage du running pour tous niveaux.</p></div>
+      <div class="offer-card reveal"><div class="offer-icon"><i class="fa-solid fa-dumbbell"></i></div><h3>Circuit Training & Cross Training</h3><p>Renforcement musculaire, entraînements TRX et boxe fitness. Séances courtes et efficaces.</p></div>
+      <div class="offer-card reveal"><div class="offer-icon"><i class="fa-solid fa-mountain-sun"></i></div><h3>Trail & Sorties Nature</h3><p>Sorties trail en plein air, stages multi-sports sur une ou plusieurs journées.</p></div>
+      <div class="offer-card reveal"><div class="offer-icon"><i class="fa-solid fa-spa"></i></div><h3>Yoga & Pilates</h3><p>Séances de yoga et pilates pour réduire le stress, améliorer la posture et favoriser la récupération.</p></div>
+      <div class="offer-card reveal"><div class="offer-icon"><i class="fa-solid fa-people-carry-box"></i></div><h3>Team Building Sportif</h3><p>Activités ludiques et variées adaptées au profil du groupe, dans vos locaux ou en plein air.</p></div>
+      <div class="offer-card reveal"><div class="offer-icon"><i class="fa-solid fa-hand-fist"></i></div><h3>Boxe & Sports Collectifs</h3><p>Séances de boxe et sports collectifs pour renforcer la cohésion et la discipline.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="methode">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Notre méthode</span>
+      <h2>Une méthodologie sur-mesure</h2>
+      <p>De l'analyse de vos besoins jusqu'à l'accompagnement terrain, chaque étape est pensée pour votre équipe.</p>
+    </div>
+    <div class="method-grid">
+      <div class="method-card reveal"><div class="method-num">01</div><h3>Diagnostic</h3><p>Analyse des besoins RH, niveau sportif des collaborateurs et objectifs individuels ou collectifs.</p></div>
+      <div class="method-card reveal"><div class="method-num">02</div><h3>Plan personnalisé</h3><p>Programme d'entraînement adapté à vos objectifs : compétition, cohésion ou bien-être général.</p></div>
+      <div class="method-card reveal"><div class="method-num">03</div><h3>Accompagnement terrain</h3><p>Suivi des groupes en préparation à la compétition, y compris le jour J.</p></div>
+      <div class="method-card reveal"><div class="method-num">04</div><h3>Flexibilité totale</h3><p>Séances dans vos locaux, en plein air ou dans nos espaces partenaires, aux horaires de votre choix.</p></div>
+    </div>
+    <div class="method-banner reveal">Dans vos locaux · En plein air · À la demande</div>
+  </div>
+</section>
+
+<section class="section section-light" id="coach">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Votre coach</span>
+      <h2>Votre coach & son équipe</h2>
+      <p>Une expertise de terrain au service de vos équipes.</p>
+    </div>
+    <div class="coach-grid">
+      <div class="coach-photo-card reveal">
+        <div class="coach-photo"><i class="fa-solid fa-user"></i></div>
+        <div class="coach-photo-info">
+          <h3>Achraf Bakkali</h3>
+          <div class="role">Coach Sportif Diplômé d'État</div>
+          <div class="coach-tags">
+            <span>Sports Collectifs</span>
+            <span>Cross Training</span>
+            <span>TRX</span>
+            <span>Boxe</span>
+            <span>Préparation Physique</span>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="coach-facts">
+          <div class="coach-fact"><i class="fa-solid fa-graduation-cap"></i><p>Coach sportif diplômé d'État, formé aux meilleures méthodologies d'entraînement.</p></div>
+          <div class="coach-fact"><i class="fa-solid fa-football"></i><p>Ancien rugbyman professionnel — discipline et esprit collectif au cœur de son approche.</p></div>
+          <div class="coach-fact"><i class="fa-solid fa-trophy"></i><p>Préparateur physique de Puteaux Rugby, champions de France rugby à 5 en 2018.</p></div>
+          <div class="coach-fact"><i class="fa-solid fa-phone"></i><p>+33 6 88 12 44 83</p></div>
+          <div class="coach-fact"><i class="fa-solid fa-envelope"></i><p>achraf@beyondsport.fr</p></div>
+        </div>
+        <div class="coach-team-note">
+          <i class="fa-solid fa-people-group"></i>
+          <p>Derrière Achraf, une équipe de coachs sélectionnés par ses soins — diplômés, expérimentés, partageant les mêmes valeurs de rigueur et d'esprit collectif.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="avis">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Témoignage</span>
+      <h2>Ce que nos clients disent</h2>
+    </div>
+    <div class="quote-card reveal">
+      <i class="fa-solid fa-quote-left"></i>
+      <p class="quote-text">Les sessions de Beyond Sport ont transformé l'ambiance de notre équipe. Nos collaborateurs reviennent plus motivés, plus soudés. Achraf sait adapter chaque séance au niveau de chacun tout en maintenant un esprit de groupe remarquable.</p>
+      <div class="author">— Direction RH, client parisien</div>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card reveal"><i class="fa-solid fa-heart"></i><h3>Bien-être</h3><p>Réduction du stress et amélioration du bien-être global des équipes.</p></div>
+      <div class="benefit-card reveal"><i class="fa-solid fa-handshake"></i><h3>Cohésion</h3><p>Esprit d'équipe renforcé grâce à des défis collectifs partagés.</p></div>
+      <div class="benefit-card reveal"><i class="fa-solid fa-chart-line"></i><h3>Performance</h3><p>Collaborateurs plus énergiques, concentrés et productifs.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Questions fréquentes</span>
+      <h2>Tout ce qu'il faut savoir avant de se lancer</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <div class="faq-question">Quel est le format des séances ? <i class="fa-solid fa-plus"></i></div>
+        <div class="faq-answer"><p>Les séances durent généralement entre 45 et 60 minutes et s'adaptent à la taille de votre groupe, de quelques collaborateurs à des équipes plus larges. Fréquence hebdomadaire, ponctuelle ou événementielle, selon vos besoins.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question">Où se déroulent les séances ? <i class="fa-solid fa-plus"></i></div>
+        <div class="faq-answer"><p>Dans vos locaux, en plein air (parcs, berges, bois de Boulogne/Vincennes) ou dans nos espaces partenaires. Nous nous adaptons à vos contraintes logistiques parisiennes.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question">Quel est le tarif ? <i class="fa-solid fa-plus"></i></div>
+        <div class="faq-answer"><p>Chaque programme est établi sur devis, selon la fréquence, le nombre de collaborateurs et le format choisi. Le premier diagnostic est offert.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question">Faut-il un niveau sportif particulier ? <i class="fa-solid fa-plus"></i></div>
+        <div class="faq-answer"><p>Non. Nos programmes sont conçus pour s'adapter à tous les niveaux, du collaborateur sédentaire au sportif confirmé, dans une logique d'inclusion et de progression individuelle.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question">Quelle est votre zone d'intervention ? <i class="fa-solid fa-plus"></i></div>
+        <div class="faq-answer"><p>Paris et la région parisienne. Nous connaissons les contraintes spécifiques des entreprises franciliennes (espaces, horaires, accès).</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question">Comment se déroule la mise en place ? <i class="fa-solid fa-plus"></i></div>
+        <div class="faq-answer"><p>Diagnostic de vos besoins RH, construction d'un plan personnalisé, puis accompagnement terrain avec un suivi continu — y compris le jour d'une compétition ou d'un événement.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container">
+    <div class="cta-final reveal">
+      <div>
+        <span class="eyebrow" style="background:rgba(23,217,163,0.18);">Beyond Sport</span>
+        <h2>Prêt à lancer votre programme ?</h2>
+        <p>Coaching sportif en entreprise. Séances sur-mesure, coach diplômé d'État, dans vos locaux ou en plein air.</p>
+        <div class="cta-checklist">
+          <div><i class="fa-solid fa-circle-check"></i> Séances sur-mesure</div>
+          <div><i class="fa-solid fa-circle-check"></i> Coach diplômé d'État</div>
+          <div><i class="fa-solid fa-circle-check"></i> Dans vos locaux ou en plein air</div>
+          <div><i class="fa-solid fa-circle-check"></i> Entreprises parisiennes : nous connaissons vos contraintes</div>
+        </div>
+      </div>
+      <div class="contact-box">
+        <h3>Demander un diagnostic gratuit</h3>
+        <form onsubmit="event.preventDefault(); alert('Merci ! Votre demande a bien été prise en compte. Achraf vous recontactera rapidement.');">
+          <div class="field"><label>Nom & prénom</label><input type="text" required></div>
+          <div class="field"><label>Entreprise</label><input type="text" required></div>
+          <div class="field"><label>Email professionnel</label><input type="email" required></div>
+          <div class="field"><label>Votre besoin</label><textarea placeholder="Team building, préparation course, séances régulières..."></textarea></div>
+          <button type="submit" class="btn btn-primary">Envoyer ma demande</button>
+        </form>
+        <div class="contact-direct">
+          <span><i class="fa-solid fa-envelope"></i>achraf@beyondsport.fr</span>
+          <span><i class="fa-solid fa-phone"></i>+33 6 88 12 44 83</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="#top" class="logo">BEYOND<span>SPORT</span></a>
+        <p style="margin-top:12px;font-size:0.9rem;max-width:280px;">Coaching sportif en entreprise à Paris. Performance, cohésion, bien-être.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="#offre">Notre offre</a></li>
+          <li><a href="#methode">Méthode</a></li>
+          <li><a href="#coach">Coach</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul class="footer-links">
+          <li>achraf@beyondsport.fr</li>
+          <li>+33 6 88 12 44 83</li>
+          <li>Paris & région parisienne</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Beyond Sport — Tous droits réservés</span>
+      <span>SIRET 535 290 977 00011</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const burger = document.getElementById('burgerBtn');
+  const navLinks = document.querySelector('.nav-links');
+  burger.addEventListener('click', () => {
+    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    navLinks.style.cssText += 'flex-direction:column;position:absolute;top:70px;left:0;right:0;background:#0d1f35;padding:20px 24px;gap:18px;';
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    question.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-answer').style.maxHeight = null; });
+      if(!isOpen){ item.classList.add('open'); answer.style.maxHeight = answer.scrollHeight + 'px'; }
+    });
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
