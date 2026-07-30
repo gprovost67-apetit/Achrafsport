@@ -118,11 +118,14 @@
   /* TRUST BAR */
   .trust-bar{background:var(--white);padding:48px 0;border-bottom:1px solid #eef1f2;}
   .trust-bar p{text-align:center;color:var(--text-muted);font-size:0.85rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:28px;}
-  .trust-logos{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;}
-  .trust-logos span{
-    padding:12px 22px;border-radius:10px;background:var(--bg-light);
-    font-family:'Poppins',sans-serif;font-weight:700;color:var(--navy);font-size:0.95rem;
+  .trust-logos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:18px;}
+  .trust-logos .logo-box{
+    padding:16px 26px;border-radius:10px;background:var(--bg-light);
+    display:flex;align-items:center;justify-content:center;height:64px;
+    transition:transform .2s ease;
   }
+  .trust-logos .logo-box:hover{transform:translateY(-3px);}
+  .trust-logos img{max-height:32px;max-width:130px;width:auto;object-fit:contain;}
 
   /* STATS */
   .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
@@ -174,6 +177,35 @@
     margin-top:44px;text-align:center;background:var(--bg-light);color:var(--navy);
     padding:20px;border-radius:var(--radius);font-weight:700;letter-spacing:0.03em;
   }
+  .method-grid.cols-3{grid-template-columns:repeat(3,1fr);}
+  .method-highlight{
+    margin-top:26px;background:linear-gradient(120deg,var(--teal) 0%,var(--teal-dark) 100%);
+    color:var(--navy);border-radius:var(--radius);padding:44px 46px;
+    display:flex;align-items:center;gap:36px;box-shadow:var(--shadow-lg);position:relative;overflow:hidden;
+  }
+  .method-highlight::after{
+    content:"";position:absolute;width:220px;height:220px;border-radius:50%;
+    background:rgba(255,255,255,0.12);top:-90px;right:-60px;
+  }
+  .method-highlight-icon{
+    width:84px;height:84px;min-width:84px;border-radius:50%;background:rgba(13,31,53,0.14);
+    display:flex;align-items:center;justify-content:center;position:relative;z-index:2;
+  }
+  .method-highlight-icon i{font-size:2.1rem;color:var(--navy);}
+  .method-highlight-body{position:relative;z-index:2;}
+  .method-highlight-tag{display:block;font-weight:800;font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(13,31,53,0.65);margin-bottom:8px;}
+  .method-highlight h3{font-size:1.7rem;margin-bottom:10px;color:var(--navy);}
+  .method-highlight p{color:rgba(13,31,53,0.82);font-size:1.02rem;max-width:660px;margin-bottom:18px;}
+  .method-highlight-chips{display:flex;flex-wrap:wrap;gap:12px;}
+  .method-highlight-chips span{
+    background:rgba(13,31,53,0.14);color:var(--navy);font-weight:700;font-size:0.85rem;
+    padding:9px 18px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;
+  }
+  @media(max-width:760px){
+    .method-grid.cols-3{grid-template-columns:1fr;}
+    .method-highlight{flex-direction:column;text-align:center;padding:36px 28px;}
+    .method-highlight-chips{justify-content:center;}
+  }
 
   /* COACH */
   .coach-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:50px;align-items:start;}
@@ -182,8 +214,9 @@
   }
   .coach-photo{
     height:340px;background:linear-gradient(160deg,#1a3a5c,#0d1f35);
-    display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.35);font-size:3rem;
+    overflow:hidden;
   }
+  .coach-photo img{width:100%;height:100%;object-fit:cover;object-position:center 20%;}
   .coach-photo-info{padding:26px 26px 30px;}
   .coach-photo-info h3{color:var(--white);font-size:1.4rem;margin-bottom:4px;}
   .coach-photo-info .role{color:var(--teal);font-weight:600;font-style:italic;margin-bottom:18px;font-size:0.98rem;}
@@ -308,9 +341,6 @@
       <li><a href="#avis">Avis</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
-    <div class="nav-cta">
-      <a href="#contact" class="btn btn-primary" style="padding:10px 22px;">Demander un devis</a>
-    </div>
     <button class="burger" id="burgerBtn"><i class="fa-solid fa-bars"></i></button>
   </nav>
 </header>
@@ -351,12 +381,12 @@
   <div class="container">
     <p>Ils nous font confiance</p>
     <div class="trust-logos">
-      <span>Ofi Invest</span>
-      <span>Eight Advisory</span>
-      <span>Forward</span>
-      <span>Zencap Asset Management</span>
-      <span>SWEN Capital Partners</span>
-      <span>Puteaux Rugby</span>
+      <div class="logo-box"><img src="logo-ofiinvest.png" alt="Ofi Invest"></div>
+      <div class="logo-box"><img src="logo-eightadvisory.png" alt="Eight Advisory"></div>
+      <div class="logo-box"><img src="logo-forward.png" alt="Forward"></div>
+      <div class="logo-box"><img src="logo-zencap.png" alt="Zencap Asset Management"></div>
+      <div class="logo-box"><img src="logo-swen.png" alt="SWEN Capital Partners"></div>
+      <div class="logo-box"><img src="logo-puteauxrugby.png" alt="Puteaux Rugby"></div>
     </div>
   </div>
 </div>
@@ -391,7 +421,7 @@
       <div class="offer-card reveal"><div class="offer-icon"><i class="fa-solid fa-dumbbell"></i></div><h3>Circuit Training & Cross Training</h3><p>Renforcement musculaire, entraînements TRX et boxe fitness. Séances courtes et efficaces.</p></div>
       <div class="offer-card reveal"><div class="offer-icon"><i class="fa-solid fa-mountain-sun"></i></div><h3>Trail & Sorties Nature</h3><p>Sorties trail en plein air, stages multi-sports sur une ou plusieurs journées.</p></div>
       <div class="offer-card reveal"><div class="offer-icon"><i class="fa-solid fa-spa"></i></div><h3>Yoga & Pilates</h3><p>Séances de yoga et pilates pour réduire le stress, améliorer la posture et favoriser la récupération.</p></div>
-      <div class="offer-card reveal"><div class="offer-icon"><i class="fa-solid fa-people-carry-box"></i></div><h3>Team Building Sportif</h3><p>Activités ludiques et variées adaptées au profil du groupe, dans vos locaux ou en plein air.</p></div>
+      <div class="offer-card reveal"><div class="offer-icon"><i class="fa-solid fa-people-carry-box"></i></div><h3>Team Building & Séminaires</h3><p>Activités ludiques et variées adaptées au profil du groupe, dans vos locaux ou en plein air. Format idéal pour animer un séminaire d'entreprise ou une journée de cohésion.</p></div>
       <div class="offer-card reveal"><div class="offer-icon"><i class="fa-solid fa-hand-fist"></i></div><h3>Boxe & Sports Collectifs</h3><p>Séances de boxe et sports collectifs pour renforcer la cohésion et la discipline.</p></div>
     </div>
   </div>
@@ -404,13 +434,24 @@
       <h2>Une méthodologie sur-mesure</h2>
       <p>De l'analyse de vos besoins jusqu'à l'accompagnement terrain, chaque étape est pensée pour votre équipe.</p>
     </div>
-    <div class="method-grid">
+    <div class="method-grid cols-3">
       <div class="method-card reveal"><div class="method-num">01</div><h3>Diagnostic</h3><p>Analyse des besoins RH, niveau sportif des collaborateurs et objectifs individuels ou collectifs.</p></div>
       <div class="method-card reveal"><div class="method-num">02</div><h3>Plan personnalisé</h3><p>Programme d'entraînement adapté à vos objectifs : compétition, cohésion ou bien-être général.</p></div>
       <div class="method-card reveal"><div class="method-num">03</div><h3>Accompagnement terrain</h3><p>Suivi des groupes en préparation à la compétition, y compris le jour J.</p></div>
-      <div class="method-card reveal"><div class="method-num">04</div><h3>Flexibilité totale</h3><p>Séances dans vos locaux, en plein air ou dans nos espaces partenaires, aux horaires de votre choix.</p></div>
     </div>
-    <div class="method-banner reveal">Dans vos locaux · En plein air · À la demande</div>
+    <div class="method-highlight reveal">
+      <div class="method-highlight-icon"><i class="fa-solid fa-shuffle"></i></div>
+      <div class="method-highlight-body">
+        <span class="method-highlight-tag">04 · Ce qui nous distingue</span>
+        <h3>Flexibilité totale</h3>
+        <p>Nous nous adaptons entièrement à votre organisation : séances dans vos locaux, en plein air ou dans nos espaces partenaires, aux horaires de votre choix.</p>
+        <div class="method-highlight-chips">
+          <span><i class="fa-solid fa-building"></i> Dans vos locaux</span>
+          <span><i class="fa-solid fa-tree"></i> En plein air</span>
+          <span><i class="fa-solid fa-clock"></i> À la demande</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -423,7 +464,7 @@
     </div>
     <div class="coach-grid">
       <div class="coach-photo-card reveal">
-        <div class="coach-photo"><i class="fa-solid fa-user"></i></div>
+        <div class="coach-photo"><img src="achraf.jpg" alt="Achraf Bakkali, coach sportif diplômé d'État"></div>
         <div class="coach-photo-info">
           <h3>Achraf Bakkali</h3>
           <div class="role">Coach Sportif Diplômé d'État</div>
